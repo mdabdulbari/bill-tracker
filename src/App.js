@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, withStyles } from "@material-ui/core";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import Header from "./components/Header";
+import styles from "./components/Header/styles";
+import ExpenseModal from "./components/ExpenseModal";
+
+function App({ classes }) {
+    return (
+        <div className={classes.root}>
+            <Header />
+            <section className={classes.expenseSection}>
+                <Button color="secondary" variant="contained">
+                    New Expense
+                </Button>
+                <ExpenseModal />
+            </section>
+        </div>
+    );
 }
 
-export default App;
+export default withStyles(styles)(App);
