@@ -2,6 +2,7 @@ const styles = {
   modal: {
     top: 50,
     right: 50,
+    marginTop: 250,
   },
   modalBody: {
     margin: "auto",

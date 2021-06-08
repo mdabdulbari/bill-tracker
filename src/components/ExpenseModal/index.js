@@ -1,50 +1,75 @@
-import { Button, Input, Modal, withStyles, TextField } from "@material-ui/core";
-import { useState } from "react";
+import {
+  Button,
+  Modal,
+  withStyles,
+  TextField,
+  Divider,
+  Typography,
+} from "@material-ui/core";
 
+import { useState } from "react";
 import styles from "./styles";
 
 const ExpenseModal = (props) => {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
 
   const onChangeAmount = (e) => {
     setAmount(e.target.value);
-    console.log(amount);
   };
 
   const onChangeDescprtion = (e) => {
     setDescription(e.target.value);
   };
 
+  const onChangeDate = (e) => {
+    setDate(e.target.value);
+  };
+
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log(amount);
-    console.log(description);
   };
 
   return (
     <Modal
-      open={true}
-      // open={open}
-      // onClose={handleClose}
+      open={props.open}
+      onClose={()=>""}
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
       className={props.classes.modal}
     >
       <div className={props.classes.modalBody}>
+        <Typography variant="h5" component="h2">
+          Add Expense
+        </Typography>
         <form>
           <TextField
             id="filled-basic"
             label="Amount"
             type="text"
             onChange={onChangeAmount}
-          />
+          />{" "}
+          <Divider />
           <TextField
             id="filled-basic"
             label="Description"
             type="text"
             onChange={onChangeDescprtion}
           />
+          <Divider />
+          <TextField
+            id="date"
+            label="Date"
+            type="date"
+            defaultValue=""
+            className={props.classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={onChangeDate}
+          />
+          <Divider />
           <Button variant="contained" color="secondary" onClick={handelSubmit}>
             Submit
           </Button>
