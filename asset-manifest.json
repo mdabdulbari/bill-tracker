@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mdabdulbari/bill-tracker/static/css/main.ad01165e.chunk.css",
+    "main.js": "/mdabdulbari/bill-tracker/static/js/main.ad38179e.chunk.js",
+    "main.js.map": "/mdabdulbari/bill-tracker/static/js/main.ad38179e.chunk.js.map",
+    "runtime-main.js": "/mdabdulbari/bill-tracker/static/js/runtime-main.1021797d.js",
+    "runtime-main.js.map": "/mdabdulbari/bill-tracker/static/js/runtime-main.1021797d.js.map",
+    "static/js/2.13f96e2a.chunk.js": "/mdabdulbari/bill-tracker/static/js/2.13f96e2a.chunk.js",
+    "static/js/2.13f96e2a.chunk.js.map": "/mdabdulbari/bill-tracker/static/js/2.13f96e2a.chunk.js.map",
+    "static/js/3.27ccc922.chunk.js": "/mdabdulbari/bill-tracker/static/js/3.27ccc922.chunk.js",
+    "static/js/3.27ccc922.chunk.js.map": "/mdabdulbari/bill-tracker/static/js/3.27ccc922.chunk.js.map",
+    "index.html": "/mdabdulbari/bill-tracker/index.html",
+    "static/css/main.ad01165e.chunk.css.map": "/mdabdulbari/bill-tracker/static/css/main.ad01165e.chunk.css.map",
+    "static/js/2.13f96e2a.chunk.js.LICENSE.txt": "/mdabdulbari/bill-tracker/static/js/2.13f96e2a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1021797d.js",
+    "static/js/2.13f96e2a.chunk.js",
+    "static/css/main.ad01165e.chunk.css",
+    "static/js/main.ad38179e.chunk.js"
+  ]
+}
