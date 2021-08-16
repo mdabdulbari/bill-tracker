@@ -35,7 +35,7 @@ function App(props) {
                     color="secondary"
                     variant="contained"
                   >
-                    New Expense
+                    Add Expense
                   </Button>
                 </CardActions>
               </Card>
@@ -54,7 +54,7 @@ function App(props) {
                     color="secondary"
                     variant="contained"
                   >
-                    New Expense
+                    View Expense
                   </Button>
                 </CardActions>
               </Card>
@@ -73,7 +73,7 @@ function App(props) {
                     color="secondary"
                     variant="contained"
                   >
-                    New Expense
+                    View Total Expense
                   </Button>
                 </CardActions>
               </Card>

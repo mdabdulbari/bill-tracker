@@ -1,14 +1,15 @@
 const styles = {
   modal: {
-    top: 50,
-    right: 50,
-    marginTop: 250,
+    marginTop: "300px",
+    marginBottom: "415px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "25%",
+    border: "solid gray"
   },
   modalBody: {
-    margin: "auto",
-    width: 600,
     background: "#fff",
-  },
+   },
 };
 
 export default styles;
