@@ -9,14 +9,21 @@ import {
 
 import { useState } from "react";
 import styles from "./styles";
+import axios from "axios"
 
 const ExpenseModal = (props) => {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
 
+
+
   const onChangeAmount = (e) => {
     setAmount(e.target.value);
+  };
+
+  const onClose = (e) => {
+    return true
   };
 
   const onChangeDescprtion = (e) => {
@@ -29,12 +36,23 @@ const ExpenseModal = (props) => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    axios.post('http://localhost:5000/data', {
+      amount,
+      description,
+      date
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }).then(() => props.close())
   };
 
   return (
     <Modal
       open={props.open}
-      onClose={()=>""}
+      onClose={onClose}
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
       className={props.classes.modal}
