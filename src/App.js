@@ -14,16 +14,22 @@ import Header from "./components/Header";
 import styles from "./components/Header/styles";
 import ExpenseModal from "./components/ExpenseModal";
 import { useState } from "react";
+import ViewExpense from "./components/ViewExpense";
 
 function App(props) {
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState("Click on View Expense to View");
+  const [data, setData] = useState(["Click on View Expense to View"]);
 
-  fetch("http://localhost:5000/data");
+  const handelViewExp = () => {
+    fetch("http://localhost:5000/data").then(data => data.json()).then(result => setData(result))
+  }
 
   const handleClose = (data) => {
     return setOpen(false);
   };
+
+  const myData = data.map(data => <ViewExpense amount={data.amount} description={data.description} date={data.date} key={data._id} />)
+
 
   return (
     <div className={props.classes.root}>
@@ -53,12 +59,12 @@ function App(props) {
             <Grid item sm={4}>
               <Card>
                 <CardContent>
-                  <Typography>View Expense</Typography>
-                  <Typography>{data}</Typography>
+                  <Typography> View Expense Here </Typography>
+                  {myData}
                 </CardContent>
                 <CardActions>
                   <Button
-                    onClick={() => console.log("You are viewing expense")}
+                    onClick={() => handelViewExp()}
                     color="secondary"
                     variant="contained"
                   >
