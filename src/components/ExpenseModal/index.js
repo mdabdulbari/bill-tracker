@@ -9,7 +9,6 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-
 import { useState } from "react";
 import styles from "./styles";
 import axios from "axios";
@@ -63,7 +62,7 @@ const ExpenseModal = (props) => {
       >
         <Grid>
           <Card>
-            <CardContent  align="center">
+            <CardContent align="center">
               <div className={props.classes.modalBody}>
                 <Typography variant="h5" component="h2" align="center">
                   Add Expense
@@ -72,7 +71,7 @@ const ExpenseModal = (props) => {
                   <TextField
                     id="filled-basic"
                     label="Amount"
-                    type="text"
+                    type="number"
                     onChange={onChangeAmount}
                   />{" "}
                   <Divider />
@@ -87,7 +86,6 @@ const ExpenseModal = (props) => {
                     id="date"
                     label="Date"
                     type="date"
-                    defaultValue=""
                     className={props.classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -95,7 +93,7 @@ const ExpenseModal = (props) => {
                     onChange={onChangeDate}
                   />
                   <Divider />
-                  <br/>
+                  <br />
                   <Button
                     variant="contained"
                     color="secondary"

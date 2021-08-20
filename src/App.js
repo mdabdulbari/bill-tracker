@@ -13,24 +13,33 @@ import "./App.css";
 import Header from "./components/Header";
 import styles from "./components/Header/styles";
 import ExpenseModal from "./components/ExpenseModal";
-import { useState } from "react";
+import { useState} from "react";
+// import { useEffect} from "react";
 import ViewExpense from "./components/ViewExpense";
 
 function App(props) {
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState(["Click on View Expense to View"]);
+  const [data, setData] = useState(null);
 
   const handelViewExp = () => {
     fetch("http://localhost:5000/data").then(data => data.json()).then(result => setData(result))
   }
 
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/data")
+  //   .then(res => {
+  //     return res.json()
+  //   }).then( data => {
+  //     return setData(data)})
+  // }, [])
+ 
   const handleClose = (data) => {
     return setOpen(false);
   };
 
-  const myData = data.map(data => <ViewExpense amount={data.amount} description={data.description} date={data.date} key={data._id} />)
+  const myData =  data && data.map(data => <ViewExpense amount={data.amount} description={data.description} date={data.date} key={data._id} id={data._id}/>) 
 
-
+//console.log(myData.amount)
   return (
     <div className={props.classes.root}>
       <Header />
@@ -60,7 +69,7 @@ function App(props) {
               <Card>
                 <CardContent>
                   <Typography> View Expense Here </Typography>
-                  {myData}
+                  {data && myData}
                 </CardContent>
                 <CardActions>
                   <Button
