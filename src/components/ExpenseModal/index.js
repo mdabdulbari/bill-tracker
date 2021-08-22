@@ -72,6 +72,7 @@ const ExpenseModal = (props) => {
                     id="filled-basic"
                     label="Amount"
                     type="number"
+                    required
                     onChange={onChangeAmount}
                   />{" "}
                   <Divider />
@@ -79,6 +80,7 @@ const ExpenseModal = (props) => {
                     id="filled-basic"
                     label="Description"
                     type="text"
+                    required
                     onChange={onChangeDescprtion}
                   />
                   <Divider />
@@ -86,6 +88,7 @@ const ExpenseModal = (props) => {
                     id="date"
                     label="Date"
                     type="date"
+                    required
                     className={props.classes.textField}
                     InputLabelProps={{
                       shrink: true,
@@ -101,7 +104,7 @@ const ExpenseModal = (props) => {
                   >
                     Submit
                   </Button>
-                </form>
+                    </form>
               </div>
             </CardContent>
           </Card>

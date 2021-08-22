@@ -17,7 +17,8 @@ import { useState} from "react";
 // import { useEffect} from "react";
 import ViewExpense from "./components/ViewExpense";
 
-function App(props) {
+
+const  App = (props) => {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null);
 
@@ -36,6 +37,7 @@ function App(props) {
   const handleClose = (data) => {
     return setOpen(false);
   };
+  
 
   const myData =  data && data.map(data => <ViewExpense amount={data.amount} description={data.description} date={data.date} key={data._id} id={data._id}/>) 
 
@@ -87,7 +89,7 @@ function App(props) {
                 <CardContent>
                   <Typography>Total Expense for the Month</Typography>
                   <section className={props.classes.expenseSection}>
-                    <ExpenseModal open={open} close={handleClose} />
+                  
                   </section>
                 </CardContent>
                 <CardActions>
