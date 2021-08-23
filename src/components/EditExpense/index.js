@@ -9,14 +9,14 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-import {useState } from "react";
+import { useState } from "react";
 import styles from "./styles";
 import axios from "axios";
 
 const EditExpense = (props) => {
-  const [amount, setAmount] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
+  const [amount, setAmount] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
 
   const onChangeAmount = (e) => {
     setAmount(e.target.value);
@@ -36,24 +36,26 @@ const EditExpense = (props) => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-  { props.id && axios.post("http://localhost:5000/" + props.id, {
+    axios
+      .post("http://localhost:5000/" + props.id, {
         amount,
         description,
         date,
       })
       .then(function (response) {
-        if(response.data === "Expense Updated"){
-          alert("Expense Updated")
-        };
+        if (response.data === "Expense Updated") {
+          alert("Expense Updated");
+        }
       })
       .catch(function (error) {
         console.log(error);
-      }).then(props.update)
-      .then(() => props.close());}
+      })
+      .then(props.update)
+      .then(() => props.close());
   };
 
   return (
-  <Grid container>
+    <Grid container>
       {props.id && (
         <Modal
           open={props.open}
