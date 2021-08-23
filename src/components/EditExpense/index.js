@@ -9,7 +9,7 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import styles from "./styles";
 import axios from "axios";
 
@@ -42,11 +42,13 @@ const EditExpense = (props) => {
         date,
       })
       .then(function (response) {
-        console.log(response);
+        if(response.data === "Expense Updated"){
+          alert("Expense Updated")
+        };
       })
       .catch(function (error) {
         console.log(error);
-      })
+      }).then(props.update)
       .then(() => props.close());}
   };
 
@@ -65,7 +67,7 @@ const EditExpense = (props) => {
               <CardContent align="center">
                 <div className={props.classes.modalBody}>
                   <Typography variant="h5" component="h2" align="center">
-                    Edit Expense {description}
+                    Edit Expense
                   </Typography>
                   <form>
                     <TextField

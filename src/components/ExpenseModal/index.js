@@ -47,8 +47,8 @@ const ExpenseModal = (props) => {
       })
       .catch(function (error) {
         console.log(error);
-      })
-      .then(() => props.close());
+      }).then(props.update)
+      .then(props.close);
   };
 
   return (

@@ -13,35 +13,36 @@ import "./App.css";
 import Header from "./components/Header";
 import styles from "./components/Header/styles";
 import ExpenseModal from "./components/ExpenseModal";
-import { useState} from "react";
-// import { useEffect} from "react";
+import { useState } from "react";
 import ViewExpense from "./components/ViewExpense";
 
-
-const  App = (props) => {
+const App = (props) => {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null);
 
   const handelViewExp = () => {
-    fetch("http://localhost:5000/data").then(data => data.json()).then(result => setData(result))
-  }
+    fetch("http://localhost:5000/data")
+      .then((data) => data.json())
+      .then((result) => setData(result));
+  };
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/data")
-  //   .then(res => {
-  //     return res.json()
-  //   }).then( data => {
-  //     return setData(data)})
-  // }, [])
- 
   const handleClose = (data) => {
     return setOpen(false);
   };
-  
 
-  const myData =  data && data.map(data => <ViewExpense amount={data.amount} description={data.description} date={data.date} key={data._id} id={data._id}/>) 
+  const myData =
+    data &&
+    data.map((data) => (
+      <ViewExpense
+        amount={data.amount}
+        description={data.description}
+        date={data.date}
+        key={data._id}
+        id={data._id}
+        update={handelViewExp}
+      />
+    ));
 
-//console.log(myData.amount)
   return (
     <div className={props.classes.root}>
       <Header />
@@ -53,7 +54,11 @@ const  App = (props) => {
                 <CardContent>
                   <Typography>Add New Expense</Typography>
                   <section className={props.classes.expenseSection}>
-                    <ExpenseModal open={open} close={handleClose} />
+                    <ExpenseModal
+                      open={open}
+                      close={handleClose}
+                      update={handelViewExp}
+                    />
                   </section>
                 </CardContent>
                 <CardActions>
@@ -88,9 +93,7 @@ const  App = (props) => {
               <Card>
                 <CardContent>
                   <Typography>Total Expense for the Month</Typography>
-                  <section className={props.classes.expenseSection}>
-                  
-                  </section>
+                  <section className={props.classes.expenseSection}></section>
                 </CardContent>
                 <CardActions>
                   <Button
@@ -108,6 +111,6 @@ const  App = (props) => {
       </Container>
     </div>
   );
-}
+};
 
 export default withStyles(styles)(App);
