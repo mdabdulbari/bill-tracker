@@ -15,13 +15,15 @@ import styles from "./components/Header/styles";
 import ExpenseModal from "./components/ExpenseModal";
 import { useState } from "react";
 import ViewExpense from "./components/ViewExpense";
+import API_BASE_URL from "./API_config";
+
 
 const App = (props) => {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null);
 
   const handelViewExp = () => {
-    fetch("http://localhost:5000/data")
+    fetch(API_BASE_URL + "/data")
       .then((data) => data.json())
       .then((result) => setData(result));
   };

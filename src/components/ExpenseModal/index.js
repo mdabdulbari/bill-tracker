@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import styles from "./styles";
 import axios from "axios";
+import API_BASE_URL from "../../API_config";
 
 const ExpenseModal = (props) => {
   const [amount, setAmount] = useState("");
@@ -37,7 +38,7 @@ const ExpenseModal = (props) => {
   const handelSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/data", {
+      .post(API_BASE_URL + "/data", {
         amount,
         description,
         date,
@@ -104,7 +105,7 @@ const ExpenseModal = (props) => {
                   >
                     Submit
                   </Button>
-                    </form>
+                </form>
               </div>
             </CardContent>
           </Card>

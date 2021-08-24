@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import styles from "./styles";
 import axios from "axios";
+import API_BASE_URL from "../../API_config";
 
 const EditExpense = (props) => {
   const [amount, setAmount] = useState("");
@@ -37,15 +38,13 @@ const EditExpense = (props) => {
   const handelSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/" + props.id, {
+      .post(API_BASE_URL + "/" + props.id, {
         amount,
         description,
         date,
       })
       .then(function (response) {
-        if (response.data === "Expense Updated") {
-          alert("Expense Updated");
-        }
+        console.log(response)
       })
       .catch(function (error) {
         console.log(error);

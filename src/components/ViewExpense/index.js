@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CardContent, Typography, Button } from "@material-ui/core";
 import axios from "axios";
 import EditExpense from "../EditExpense";
+import API_BASE_URL from "../../API_config";
 
 const ViewExpense = (props) => {
   const [data, setDate] = useState([""]);
@@ -14,13 +15,13 @@ const ViewExpense = (props) => {
 
   const deletePost = (id) => {
     axios
-      .delete("http://localhost:5000/" + id)
+      .delete(API_BASE_URL + "/" + id)
       .then((res) => console.log(res))
       .then(props.update);
   };
 
   const editPost = (id) => {
-    fetch("http://localhost:5000/" + id)
+    fetch(API_BASE_URL + "/" + id)
       .then((res) => {
         return res.json();
       })
